@@ -1,0 +1,9 @@
+/data
+/tests
+/venv
+./venv
+*.json
+/src/__pycache__
+/dist
+/build
+/output
