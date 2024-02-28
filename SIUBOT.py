@@ -13,7 +13,12 @@ from pathlib import Path
 import time
 
 def send_to_telegram(message):
+    """
+    Envía un mensaje al chat de Telegram.
 
+    Args:
+        message (str): El mensaje a enviar.
+    """
     apiURL = f'https://api.telegram.org/bot{apiToken}/sendMessage'
 
     try:
@@ -22,8 +27,13 @@ def send_to_telegram(message):
     except Exception as e:
         print(e)
 
-# Función para agregar mensajes al archivo de registro
 def agregar_al_registro(mensaje):
+    """
+    Agrega un mensaje al archivo de registro.
+
+    Args:
+        mensaje (str): El mensaje a agregar al registro.
+    """
     registro_filepath = os.path.join(os.getcwd(), "registro.txt")
     with open(registro_filepath, 'a') as registro_file:
         registro_file.write(f'{datetime.now()} - {mensaje}\n')     
@@ -44,7 +54,7 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
- # Crear una nueva instancia del driver de Chrome
+# Crear una nueva instancia del driver de Chrome
 driver = webdriver.Chrome(options=chrome_options,service=ChromeService(ChromeDriverManager().install()))
 
 agregar_al_registro(f"Inicio de la ejecución")
@@ -62,8 +72,8 @@ password_input = driver.find_element(By.ID, 'password')
 submit_button = driver.find_element(By.ID, 'login')
 
 # Rellenamos el formulario de inicio de sesión
-username_input.send_keys(username) ## Ingresar usuario del SIU GUARANI
-password_input.send_keys(password) ## Ingresar contraseña del SIU GUARANI
+username_input.send_keys(username) 
+password_input.send_keys(password) 
 
 # Hacemos clic en el botón de inicio de sesión
 username_input.send_keys(Keys.RETURN)
@@ -154,5 +164,5 @@ else:
 print(f"Fin de la ejecución\n")
 agregar_al_registro(f"Fin de la ejecución\n")
 
-# Cierra el navegador cuando hayas terminado de trabajar con él
+# Cierra el navegador
 driver.close()
