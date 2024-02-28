@@ -1,0 +1,14 @@
+{
+    "telegram": {
+        "apiToken": "TU_TOKEN_DEL_BOT",
+        "chatID": "TU_ID_DE_CHAT"
+    },
+    "guarani": {
+        "username": "TU_NOMBRE_DE_USUARIO",
+        "password": "TU_CONTRASEÑA"
+    },
+    "examen": {
+        "nombre_materia": "NOMBRE_DE_LA_MATERIA",
+        "fecha": "DD/MM/YYYY"
+    }
+}
